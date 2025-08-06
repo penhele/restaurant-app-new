@@ -3,6 +3,7 @@ import 'package:iconsax/iconsax.dart';
 
 import '../../data/model/restaurant.dart';
 import '../../utils/constants/sizes.dart';
+import '../../utils/helpers/helper_functions.dart';
 
 class RestaurantCard extends StatelessWidget {
   const RestaurantCard({super.key, required this.restaurant});
@@ -11,6 +12,7 @@ class RestaurantCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = SHelperFunctions.isDarkMode(context);
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Container(
@@ -24,7 +26,9 @@ class RestaurantCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(SSizes.cardRadius),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withValues(alpha: 0.1),
+            color: isDark
+                ? Colors.black.withValues(alpha: 0.2)
+                : Colors.grey.withValues(alpha: 0.1),
             offset: const Offset(0, 2),
             blurRadius: 5,
             spreadRadius: 1,
@@ -42,6 +46,9 @@ class RestaurantCard extends StatelessWidget {
               height: 100,
               width: 150,
               fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) {
+                return const Icon(Icons.broken_image);
+              },
             ),
           ),
           const SizedBox(width: SSizes.spaceBtwItems),
