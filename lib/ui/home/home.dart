@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../provider/restaurant_provider.dart';
 import '../../static/restaurant_list_result_state.dart';
+import 'restaurant_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -41,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
               itemBuilder: (context, index) {
                 final restaurant = restaurantList[index];
 
-                return Text(restaurant.name);
+                return RestaurantCard(restaurant: restaurant);
               },
             ),
 
