@@ -20,7 +20,7 @@ class RestaurantCard extends StatelessWidget {
         horizontal: SSizes.md,
       ),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(SSizes.cardRadius),
         boxShadow: [
           BoxShadow(

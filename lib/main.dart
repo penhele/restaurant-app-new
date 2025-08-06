@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'data/api/api_service.dart';
 import 'navigation_menu.dart';
 import 'provider/restaurant_provider.dart';
+import 'utils/theme/theme.dart';
 
 void main() {
   runApp(
@@ -26,9 +27,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Restaurant App',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
+      themeMode: ThemeMode.system,
+      theme: SAppTheme.lightTheme,
+      darkTheme: SAppTheme.darkTheme,
       home: const NavigationMenu(),
     );
   }
