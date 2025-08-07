@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
+import '../../controllers/theme_controller.dart';
 import '../../provider/restaurant_provider.dart';
 import '../../static/restaurant_list_result_state.dart';
 import 'restaurant_card.dart';
@@ -29,7 +31,19 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Home Screen')),
+      appBar: AppBar(
+        title: const Text('Restaurant'),
+        actions: [
+          GetBuilder<ThemeController>(
+            builder: (controller) => IconButton(
+              onPressed: () => controller.toggleTheme(),
+              icon: Icon(
+                controller.isDarkMode ? Icons.dark_mode : Icons.light_mode,
+              ),
+            ),
+          ),
+        ],
+      ),
       body: Consumer<RestaurantProvider>(
         builder: (context, value, child) {
           return switch (value.resultState) {

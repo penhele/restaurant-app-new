@@ -15,6 +15,7 @@ class SAppTheme {
     textTheme: STextTheme.lightTextTheme,
     appBarTheme: SAppBarTheme.lightAppBarTheme,
     navigationBarTheme: SNavigationBarTheme.lightNavBarTheme,
+    cardColor: SColors.lightCard,
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -24,5 +25,6 @@ class SAppTheme {
     textTheme: STextTheme.darkTextTheme,
     appBarTheme: SAppBarTheme.darkAppBarTheme,
     navigationBarTheme: SNavigationBarTheme.darkNavBarTheme,
+    cardColor: SColors.darkCard,
   );
 }
